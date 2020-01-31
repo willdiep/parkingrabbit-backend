@@ -27,14 +27,15 @@ ActiveRecord::Schema.define(version: 2020_01_31_034236) do
   end
 
   create_table "listings", force: :cascade do |t|
-    t.string "title"
+    t.string "name"
     t.string "description"
     t.string "address"
     t.string "city"
     t.integer "zipcode"
     t.float "lat"
     t.float "long"
-    t.decimal "price"
+    t.integer "hourly_price"
+    t.integer "monthly_price"
     t.datetime "available_start"
     t.datetime "available_end"
     t.datetime "created_at", precision: 6, null: false
