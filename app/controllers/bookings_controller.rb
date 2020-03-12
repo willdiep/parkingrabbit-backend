@@ -3,11 +3,15 @@ class BookingsController < ApplicationController
 
   def index
     bookings = Booking.all
-    render json: bookings
+    render json: BookingSerializer.new(bookings)
   end
 
   def show
-      render json: @booking
+    booking = Booking.find(params[:id])
+    options = {
+      include: [:user, :listing]
+    }
+    render json: BookingSerializer.new(booking)
   end
 
   def create

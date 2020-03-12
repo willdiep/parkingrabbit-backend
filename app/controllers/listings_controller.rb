@@ -3,15 +3,17 @@ class ListingsController < ApplicationController
 
   def index
     listings = Listing.all
-    render json: listings
+    render json: ListingSerializer.new(listings)
+
   end
 
   def show
-      render json: @listing
+    listing = Listing.find(params[:id])
+    render json: ListingSerializer.new(listing)
   end
 
   def create
-      @listing = User.create_or_find_by(listing_params)
+      @listing = Listing.create_or_find_by(listing_params)
       render json: @listing
   end
 
@@ -26,7 +28,7 @@ class ListingsController < ApplicationController
 
   private
 
-  def find_p9w59jt
+  def find_listing
       @listing = Listing.find_by(id: params[:id])
   end
 
