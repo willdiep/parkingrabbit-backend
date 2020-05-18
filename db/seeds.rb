@@ -17,6 +17,9 @@ rating_array = [0.5, 1, 1.5, 2, 2.5, 3, 3,5, 4, 4.5, 5]
 
 listing_description_array = ["Easily accessible corner lot in the Financial District. Just two blocks from Punch Line Comedy Club and a leisurely walk to Cable Car Museum, Exploratorium, and the Ferry Building.", "Secure and affordable parking at the Hilton Hotel in the Financial District. Just a short walk to Punch Line Comedy Club, Cable Car Museum, Ferry Building, and Exploratorium.", "Convenient valet parking garage for 100 Pine Center in Financial District. Just a short walk to the Ferry Building, Punch Line Comedy Club, Union Square, and the Contemporary Jewish Museum.", "Convenient valet parking garage in Chinatown. Just a short walk to the Masonic Center, Marines' Memorial Theatre, Grace Cathedral and the Cable Car Museum.", "A convenient garage parking in Lower Nob Hill. Just a short walk to A.C.T.'s Geary Theater, Yerba Buena Center for the Arts (YBCA), Union Square and The Regency Center.", "Convenient and affordable valet parking lot in the Embarcadero. Just a few minutes to the Ferry Building, Punchline Comedy Club, and Eureka Theatre.", "Convenient and affordable open-air lot in downtown San Francisco. Perfect parking for Fisherman's Wharf and the Academy of Art, just a short walk to the Aquarium of the Bay and the San Francisco Magic Show.", "Convenient and affordable parking garage in Nob Hill. Just a short walk to Lafayette Park, Great American Music Hall and The Masonic.", "Secure and convenient garage in Nob Hill. Just a few blocks from the Lafayette Park and minutes away from Regency Ballroom, and various restaurants.", "Convenient garage in Nob Hill. Just a short walk to the Regency Ballroom, the Fillmore and Marines Memorial Theatre.", "Secure and affordable indoor garage in downtown San Francisco. Just a few minutes to the Curran Theatre, Asian Art Museum, and Bill Graham Civic Auditorium.", "Convenient valet parking at the Argonaut Hotel in Fisherman's Wharf. Drivers love the easy access to the Musée Mécanique, Ghirardelli Square, Fisherman's Wharf, and San Francisco Art Institute.", "Convenient valet service at the Hyatt Centric in Fisherman's Wharf. Just a short walk to Washington Square Park, San Francisco Art Institute, and Bimbo's 365 Club.","Affordable valet parking in Western Addition. Very convenient to The Independent, The Fillmore, nearby parks, shops, and restaurants.", "Affordable open-air lot in Mission District. Just a short walk to the ODC Theater, Brick and Mortar Music Hall, and Public Works.", "Secure, indoor garage with valet parking in San Francisco, close to the Theater District, the Cable Car Museum and the Union Square."]
 
+listing_images_array = ['/listing-images/1.jpg', '/listing-images/2.jpg', '/listing-images/3.jpg', '/listing-images/4.jpg', '/listing-images/5.jpg']
+
+
 5.times do
   User.create(
     first_name: Faker::Name.first_name, 
@@ -43,7 +46,8 @@ end
     contact_name: Faker::Name.unique.name,
     contact_number: Faker::PhoneNumber.cell_phone,
     contact_email: Faker::Internet.safe_email,
-    rating: rating_array.sample
+    rating: rating_array.sample,
+    listing_image: listing_images_array.sample
   )
 end
 
