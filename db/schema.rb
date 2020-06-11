@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_02_055603) do
+ActiveRecord::Schema.define(version: 2020_06_10_005027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,21 @@ ActiveRecord::Schema.define(version: 2020_04_02_055603) do
     t.datetime "end_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "driver_name"
+    t.string "driver_license"
+    t.string "driver_contact_number"
+    t.string "vehicle_license_plate"
+    t.string "car_make"
+    t.integer "car_year"
+    t.string "billing_address"
+    t.string "billing_city"
+    t.string "billing_state"
+    t.string "billing_zipcode"
+    t.string "cardholder_name"
+    t.string "card_number"
+    t.string "card_exp_date"
+    t.string "card_cvv"
+    t.string "listing_total"
     t.index ["listing_id"], name: "index_bookings_on_listing_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -46,6 +61,7 @@ ActiveRecord::Schema.define(version: 2020_04_02_055603) do
     t.string "contact_email"
     t.float "rating"
     t.string "listing_image"
+    t.string "features", default: [], array: true
   end
 
   create_table "users", force: :cascade do |t|

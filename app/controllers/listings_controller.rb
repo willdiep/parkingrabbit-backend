@@ -1,5 +1,6 @@
 class ListingsController < ApplicationController
   before_action :find_listing, only: [:show, :create, :update, :destroy]
+  skip_before_action :authorize, only: [:index]
 
   def index
     listings = Listing.all

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :find_user, only: [:show, :create, :update, :destroy]
+  skip_before_action :authorize #, only: [:create]
 
   def index
     users = User.all
@@ -11,9 +12,14 @@ class UsersController < ApplicationController
     render json: UserSerializer.new(user)
   end
 
+  # creates a new user
   def create
       @user = User.create_or_find_by(user_params)
-      render json: @user
+      my_token = issue_token(@user)
+
+      render json: {user: @user, token: my_token}
+      # render json: @user
+      
   end
 
   def update
@@ -32,7 +38,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password)
+      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
 
 
