@@ -80,7 +80,7 @@ ParkingRabbit is a single-page, full-stack application to reserve parking spots 
 
 
 #### In Your Browser
-Navigate to the web address of your Node server http://localhost:4000
+Navigate to the web address of your Node server http://localhost:3000
 
 
 
