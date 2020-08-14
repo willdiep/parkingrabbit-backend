@@ -4,6 +4,8 @@ class ListingsController < ApplicationController
 
   def index
     listings = Listing.all
+    # emulate fetching
+    sleep 4
     render json: ListingSerializer.new(listings)
 
   end

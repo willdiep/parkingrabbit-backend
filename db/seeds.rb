@@ -56,13 +56,11 @@ listing_images_array = [
   'https://res.cloudinary.com/dobz3lasb/image/upload/v1589870796/3_l36pts.jpg',
 ]
 
-# lat_array [
-#   rand(37.760281..37.765664),
-# ]
 
-# long_array = [
-#   rand(-122.510822..-122.386529),
-# ]
+lat_array = [rand(37.760281..37.765664), rand(37.775122..37.781727), rand(37.803314..37.806593), rand(37.799584..37.803959), rand(37.798602..37.799544), rand(37.804811..37.787543), rand(37.775023..37.788006), rand(37.752407..37.750122), rand(37.741325..37.776420), rand(37.731306..37.759139), rand(37.716334..37.727259), rand(37.776383..37.799473)]
+
+long_array = [rand(-122.510822..-122.386529), rand(-122.511208..-122.388151), rand(-122.446952..-122.406031), rand(-122.446236..-122.403410), rand(-122.446025..-122.401150), rand(-122.420216..-122.391226), rand(-122.511323..-122.440588), rand(-122.508576..-122.387815), rand(-122.507114..-122.394038), rand(-122.495076..-122.388303), rand(-122.482196..-122.391182), rand(-122.484571..-122.401274)]
+
 
 1.times do
   User.create(
@@ -73,14 +71,14 @@ listing_images_array = [
   )
 end
 
-20.times do
+10.times do
   Listing.create(
     name: Faker::Address.community + " Parking",
     description: listing_description_array.sample,
     address: Faker::Address.street_address,
     city: "San Franciso, CA",
     zipcode: zipcode_array.sample,
-    lat: rand(37.760281..37.765664),
+    lat: rand(37.760281..37.765664), 
     long: rand(-122.510822..-122.386529),
     hourly_price: rand(10..20),
     monthly_price: rand(120..350),
